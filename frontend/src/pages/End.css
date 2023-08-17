@@ -1,0 +1,14 @@
+.block{
+    position: relative;
+    overflow: hidden;
+}
+
+.block2{
+    position: absolute
+}
+
+.tsparticles{
+    position: fixed;
+    width: 50%;
+    z-index: -1;
+}

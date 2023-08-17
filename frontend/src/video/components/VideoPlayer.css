@@ -1,0 +1,22 @@
+.video{
+    opacity: 1;
+    border-radius: 10px;
+    border:7px solid rgb(127, 125, 198);
+}
+.card{
+    width:610px;
+    height:480px;
+    padding: 0px 5px ;
+
+    border-radius: 5px;
+    background-color: rgb(63, 125, 178);
+    opacity: 1;
+}
+.head{
+    text-align: center;
+    font-size: 2em;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    margin: 10px 0px;
+    margin-bottom: 50px;
+}

@@ -1,0 +1,32 @@
+.block{
+    position: relative;
+    overflow: hidden;
+    
+}
+#playButton{
+    font-size: 2em;
+    margin-top: 10px;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px 30px;
+}
+.card{
+    width: 500px;
+    background-color: rgb(206, 219, 203);
+    opacity: 0.9;
+}
+.Head {
+    color: aliceblue;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10vh;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.rule{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 3em;
+    
+}
