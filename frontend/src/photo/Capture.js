@@ -51,7 +51,7 @@ export function Capture() {
     }
 
     function uploadImage(data) {
-      fetch( "http://localhost:8080" + '/images', {
+      fetch( "https://face2facebackend.azurewebsites.net" + '/images', {
         method: 'POST',
         body: data
       })
@@ -72,7 +72,7 @@ export function Capture() {
         context.drawImage(videoRef.current, 0, 0, width, height);
         let data = canvasRef.current.toDataURL('image/png');
         setPhotoSrc(data);
-        fetch("http://localhost:8080" + '/validate', {
+        fetch("https://face2facebackend.azurewebsites.net" + '/validate', {
           method: 'POST',
           body: data
         })
