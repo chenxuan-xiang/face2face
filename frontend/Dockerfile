@@ -22,8 +22,8 @@ WORKDIR /frontend
 COPY ./requirements.txt .
 COPY ./app.py .
 RUN mkdir /frontend/build
-# COPY --from=builder /app/build /frontend/build
-COPY ./build /frontend/build
+COPY --from=builder /app/build /frontend/build
+# COPY ./build /frontend/build
 RUN pip install -r requirements.txt
 ENV SERVER_PORT 80
 ENV BACKEND_HOST https://face2facebackend.azurewebsites.net
