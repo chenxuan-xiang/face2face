@@ -1,10 +1,11 @@
 # Fetching the latest node image on apline linux
-FROM node:alpine AS builder
+# FROM node:alpine AS builder
+FROM chenxuanxiang.azurecr.io/nodebase AS builder
 # Setting up the work directory
 WORKDIR /app
 # Installing dependencies
 COPY ./package.json ./
-RUN npm install
+# RUN npm install
 # Copying all the files in our project
 COPY . .
 # Building our application
