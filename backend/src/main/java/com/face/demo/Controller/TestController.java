@@ -23,7 +23,7 @@ public class TestController {
 
     @GetMapping("/users/{name}")
     public String helloworld(@PathVariable String name){
-        return "hello " + name;
+        return "hello world" + name;
     }
 
     @PostMapping("/images")
