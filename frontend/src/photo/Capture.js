@@ -69,7 +69,7 @@ export function Capture() {
     }
 
     function validateImage() {
-      setResult("Validating.....");
+      setResult("Validating......");
       var context = canvasRef.current.getContext('2d');
       if (width && height) {
         canvasRef.current.width = width;
