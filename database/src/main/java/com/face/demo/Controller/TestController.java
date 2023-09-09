@@ -82,7 +82,7 @@ public class TestController {
             return new ResponseEntity<List<Person>>(persons, HttpStatus.OK);
         } catch (Exception e){
             System.out.println(e);
-            return new ResponseEntity<String>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<String>("faill", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

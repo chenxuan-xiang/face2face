@@ -144,6 +144,7 @@ export function Capture() {
       }
     }
     const getUser = () => {
+      console.log("testtest!!!");
       fetch(base_url + `/users/${userId}`, {
         method: 'GET',
       })
@@ -157,6 +158,7 @@ export function Capture() {
     }
 
     const getUserByName = () => {
+      console.log("testtest!!!222v");
       fetch(base_url + `/users/name/${userId}`, {
         method: 'GET',
       })
@@ -167,6 +169,7 @@ export function Capture() {
       .catch(error => {
         console.error('Error:', error);
       });
+      console.log("testtestendend");
     }
   return (
     <div className="background">
