@@ -148,7 +148,7 @@ export function Capture() {
       fetch(base_url + `/users/${userId}`, {
         method: 'GET',
       })
-      .then(re => {console.log(re); re.json()})
+      .then(re => re.json())
       .then(result => {
         console.log('Success:', result);
       })
@@ -162,7 +162,7 @@ export function Capture() {
       fetch(base_url + `/users/name/${userId}`, {
         method: 'GET',
       })
-      .then(re => {console.log(re); re.json()})
+      .then(re => re.json())
       .then(result => {
         console.log('Success:', result);
       })
