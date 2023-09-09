@@ -42,12 +42,12 @@ def users():
     return response.content
 
 @app.route('/users/<userid>', methods=['GET'])
-def users(userid):
+def getUsersById(userid):
     response = requests.get(NOSQL_HOST + f"/users/{userid}")
     return response.content
 
 @app.route('/users/name/<name>', methods=['GET'])
-def users(name):
+def getUsersByName(name):
     response = requests.get(NOSQL_HOST + f"/users/name/{name}")
     return response.content
 
