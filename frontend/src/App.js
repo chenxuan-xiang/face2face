@@ -2,7 +2,7 @@ import './App.css';
 import End  from './pages/End';
 import Welcome from './pages/Welcome';
 import { Capture } from './photo/Capture';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import VideoChat from './video/VideoChat';
 
 function App() {
