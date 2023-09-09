@@ -32,7 +32,7 @@ export function Capture() {
             })
         })
         .catch(function(err) {
-            console.log("An error occurred: " + err);
+            console.log("An error occurredQ: " + err);
         });
         
     },[])
