@@ -229,7 +229,7 @@ export function Capture() {
           value={userId}
           onChange={(e) => setUserId(e.target.value)}/>
         <button className='submitbutton' onClick={(e) => {getUser();e.preventDefault();}}>query users</button>
-        <button className='submitbutton' onClick={(e) => {getUserByName();e.preventDefault();}}>query users by name</button>
+        <button className='submitbutton' onClick={(e) => {getUserByName();e.preventDefault();}}>query users by name test</button>
       </form>
     </div>
   );
