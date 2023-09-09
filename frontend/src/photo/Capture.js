@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import './Capture.css';
 
 export function Capture() {
-    const base_url = "http://localhost:8080";
-    // const base_url = "";
+    // const base_url = "http://localhost:8080";
+    const base_url = "";
     const[width, setWidth] = useState(320); // We will scale the photo width to this
     const[height, setHeight] = useState(0);  // This will be computed based on the input stream
     // |streaming| indicates whether or not we're currently streaming
