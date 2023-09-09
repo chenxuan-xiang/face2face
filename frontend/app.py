@@ -41,5 +41,16 @@ def users():
     response = requests.post(NOSQL_HOST + '/users', data=request.data)
     return response.content
 
+@app.route('/users/<userid>', methods=['GET'])
+def users(userid):
+    response = requests.get(NOSQL_HOST + f"/users/{userid}")
+    return response.content
+
+@app.route('/users/name/<name>', methods=['GET'])
+def users(name):
+    response = requests.get(NOSQL_HOST + f"/users/name/{name}")
+    return response.content
+
+
 if __name__ == '__main__': 
     app.run(host="0.0.0.0", port=SERVER_PORT, debug=True)

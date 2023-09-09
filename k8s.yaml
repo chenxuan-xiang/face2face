@@ -34,43 +34,43 @@ spec:
       targetPort: 80
   selector:
     app: backend
-# ---
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: nosql
-# spec:
-#   replicas: 2
-#   selector:
-#     matchLabels:
-#       app: nosql
-#   template:
-#     metadata:
-#       labels:
-#         app: nosql
-#     spec:
-#       nodeSelector:
-#         "kubernetes.io/os": linux
-#       containers:
-#         - name: nosql
-#           image: tanjeffreyz.azurecr.io/nosql:7
-#           env:
-#             - name: ALLOW_EMPTY_PASSWORD
-#               value: "yes"
-#           ports:
-#             - containerPort: 80
-#               name: nosql
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: nosql-service
-# spec:
-#   ports:
-#     - port: 80
-#       targetPort: 80
-#   selector:
-#     app: nosql
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nosql
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nosql
+  template:
+    metadata:
+      labels:
+        app: nosql
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+        - name: nosql
+          image: chenxuanxiang.azurecr.io/database:latest
+          env:
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
+          ports:
+            - containerPort: 80
+              name: nosql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nosql-service
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: nosql
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -95,7 +95,7 @@ spec:
         "kubernetes.io/os": linux
       containers:
         - name: frontend
-          image: chenxuanxiang.azurecr.io/frontend:8
+          image: chenxuanxiang.azurecr.io/frontend:latest
           ports:
             - containerPort: 80
           resources:

@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import './Capture.css';
 
 export function Capture() {
-
+    // const base_url = "http://localhost:8080";
+    const base_url = "";
     const[width, setWidth] = useState(320); // We will scale the photo width to this
     const[height, setHeight] = useState(0);  // This will be computed based on the input stream
     // |streaming| indicates whether or not we're currently streaming
@@ -10,6 +11,9 @@ export function Capture() {
     const[streaming, setStreaming] = useState(false);
     const[photoSrc, setPhotoSrc] = useState();
     const[result, setResult] = useState("");
+    const[userName, setUserName] = useState("");
+    const[userEmail, setUserEmail] = useState("");
+    const[userId, setUserId] = useState("")
     const videoRef = useRef();
     const canvasRef = useRef();
 
@@ -43,6 +47,7 @@ export function Capture() {
           context.drawImage(videoRef.current, 0, 0, width, height);
         
           let data = canvasRef.current.toDataURL('image/png');
+          console.log(data);
           uploadImage(data);
           setPhotoSrc(data);
         } else {
@@ -109,6 +114,60 @@ export function Capture() {
         setPhotoSrc(data);
     }
 
+    const submitUser = () => {
+      var context = canvasRef.current.getContext('2d');
+      if (width && height) {
+        canvasRef.current.width = width;
+        canvasRef.current.height = height;
+        context.drawImage(videoRef.current, 0, 0, width, height);
+        let data = canvasRef.current.toDataURL('image/png');
+        setPhotoSrc(data);
+        console.log(userEmail);
+
+        fetch(base_url + '/users', {
+          method: 'POST',
+          body: 
+          JSON.stringify(
+          {
+            email: userEmail,
+            name: userName,
+            image: data }
+          )
+        })
+        .then(re => re.text())
+        .then(result => {
+          console.log('Result:', result);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      }
+    }
+    const getUser = () => {
+      fetch(base_url + `/users/${userId}`, {
+        method: 'GET',
+      })
+      .then(re => re.json())
+      .then(result => {
+        console.log('Success:', result);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+
+    const getUserByName = () => {
+      fetch(base_url + `/users/name/${userId}`, {
+        method: 'GET',
+      })
+      .then(re => re.json())
+      .then(result => {
+        console.log('Success:', result);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
   return (
     <div className="background">
       <header className="header">
@@ -145,6 +204,30 @@ export function Capture() {
         <button id="validatebutton" onClick={() => {validateImage()}}>validate</button>
         {!!result && <div className='result'>{result}</div>}
       </div>
+      <form className='user_form'>
+        
+        <input className="input_text" 
+          type="text" 
+          required="required" 
+          placeholder='input your name'
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}/>
+        <input className="input_text" 
+          type="text" 
+          required="required" 
+          placeholder='input your email'
+          value={userEmail}
+          onChange={(e) => setUserEmail(e.target.value)}/>
+        <button className='submitbutton' onClick={(e) => {submitUser();e.preventDefault();}}>submit</button>
+        <input className="input_text" 
+          type="text" 
+          required="required" 
+          placeholder='query id'
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}/>
+        <button className='submitbutton' onClick={(e) => {getUser();e.preventDefault();}}>query users</button>
+        <button className='submitbutton' onClick={(e) => {getUserByName();e.preventDefault();}}>query users by name</button>
+      </form>
     </div>
   );
 }
