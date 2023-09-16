@@ -75,7 +75,7 @@ public class CustomVision {
         HttpEntity<byte[]> request = new HttpEntity<>(fileData, headers);
         ResponseEntity<String> response = restTemplate.postForEntity(uri, request, String.class);
 
-        System.out.println(response.getBody());
+//        System.out.println(response.getBody());
     }
 
     /** Sends a prediction request to Custom Vision endpoint and returns the result of validation */

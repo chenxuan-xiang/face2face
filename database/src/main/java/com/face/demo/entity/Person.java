@@ -7,6 +7,9 @@ public class Person {
     private String fullName;
     private String email;
 
+    public Person(){
+
+    }
     public Person(String id, String fullName, String email) {
         this.userID = id;
         this.fullName = fullName;
@@ -42,5 +45,18 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(userID, person.userID) && Objects.equals(fullName, person.fullName) && Objects.equals(email, person.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userID, fullName, email);
     }
 }
